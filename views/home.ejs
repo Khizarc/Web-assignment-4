@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Historic Sites</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <%- include('partials/navbar', { page: '/' }) %>
+
+  <div class="hero min-h-screen" style="background-image: url('https://thumbs.dreamstime.com/b/toronto-skyline-sunset-canada-panorama-ontario-270082378.jpg');">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-neutral-content text-center">
+      <div class="max-w-xl">
+        <h1 class="mb-5 text-5xl font-bold">Explore Canada's National Historic Sites</h1>
+        <p class="mb-5 text-lg">Discover breathtaking locations and learn about our nation's past.</p>
+        <a href="/sites" class="btn btn-primary">View All Sites</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto py-10 grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+    <!-- Card 1 -->
+    <div class="card bg-base-100 shadow-xl">
+      <figure class="p-4">
+        <img src="https://d15ymx4otjq11i.cloudfront.net/wp-content/uploads/2019/07/17143043/NorthernLights-630x450.jpg" alt="Parliament Buildings" class="rounded-xl w-full h-48 object-cover" />
+      </figure>
+      <div class="card-body text-center">
+        <h2 class="card-title">Parliament Buildings</h2>
+        <p>One of Canada's most iconic landmarks.</p>
+        <p><strong>Date:</strong> 1867 (Declared)</p>
+        <p><strong>Location:</strong> Ottawa, ON</p>
+        <a href="/sites/ON016" class="btn btn-primary">View More</a>
+      </div>
+    </div>
+
+   
+    <div class="card bg-base-100 shadow-xl">
+      <figure class="p-4">
+        <img src="https://www.travelblissnow.com/wp-content/uploads/2015/11/207ad.jpg" alt="Old Quebec" class="rounded-xl w-full h-48 object-cover" />
+      </figure>
+      <div class="card-body text-center">
+        <h2 class="card-title">Old Quebec</h2>
+        <p>A UNESCO World Heritage Site with a rich history.</p>
+        <p><strong>Date:</strong> 1608 (Established)</p>
+        <p><strong>Location:</strong> Quebec City, QC</p>
+        <a href="/sites/QC001" class="btn btn-primary">View More</a>
+      </div>
+    </div>
+
+  
+    <div class="card bg-base-100 shadow-xl">
+      <figure class="p-4">
+        <img src="https://www.digitalschool.ca/wp-content/uploads/2018/06/rideau-canal.jpg" alt="Rideau Canal" class="rounded-xl w-full h-48 object-cover" />
+      </figure>
+      <div class="card-body text-center">
+        <h2 class="card-title">Rideau Canal</h2>
+        <p>One of the oldest continuously operated canals in North America.</p>
+        <p><strong>Date:</strong> 1832 (Declared)</p>
+        <p><strong>Location:</strong> Ottawa, ON</p>
+        <a href="/sites/ON025" class="btn btn-primary">View More</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer footer-center bg-base-300 text-base-content p-4">
+    <aside>
+      <p>Copyright © 2025 - All rights reserved by National Historic Sites</p>
+    </aside>
+  </footer>
+
+</body>
+</html>

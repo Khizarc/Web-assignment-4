@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  
+  <%- include('partials/navbar', { page: '/about' }) %>
+
+  
+  <div class="hero bg-blue-300 p-6 text-center">
+    <div class="hero-content">
+      <h1 class="text-4xl font-bold">About Me</h1>
+      <p class="text-lg mt-2"></p>
+    </div>
+  </div>
+
+  
+  <div class="container mx-auto p-6">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+     
+      <div class="flex justify-center">
+        <img 
+          src="https://compote.slate.com/images/6f82801d-96bc-4bfb-96d9-5438e4c3b1f2.jpg"
+          alt="A picture representing me"
+          class="w-3/4 rounded-lg shadow-lg"
+        >
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold mb-2">Hello, I'm Khizar Chaudhry</h2>
+        <p class="text-gray-700">
+          I am a third semester student at Seneca College, currently taking courses like Software Design and WEB322.
+          I have a strong interest in software development.
+        </p>
+        <p class="text-gray-700 mt-2">
+          My hobbies include playing basketball and lifting weights. I also really enjoy watching basketball,
+          while also working on my skills as a programmer.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="footer footer-center bg-base-300 text-base-content p-4">
+    <aside>
+      <p>Copyright © 2025 - 
+        All rights reserved by National Historic Sites
+      </p>
+    </aside>
+  </footer>
+
+</body>
+</html>

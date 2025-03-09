@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Collection</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  
+  <%- include('partials/navbar', { page: '/sites' }) %>
+
+  
+  <div class="hero bg-base-200 p-6 text-center">
+    <div class="hero-content">
+      <h1 class="text-4xl font-bold">Site Collection</h1>
+      <p class="mt-2">Browse all of our sites below</p>
+      
+      <div class="mt-4 space-x-2">
+        <a href="/sites?region=Atlantic%20Region" class="btn btn-outline">Atlantic Region</a>
+        <a href="/sites?region=Central%20Canada" class="btn btn-outline">Central Canada</a>
+        <a href="/sites?region=Prairie%20Provinces" class="btn btn-outline">Prairie Provinces</a>
+        <a href="/sites?provinceOrTerritory=Ontario" class="btn btn-outline">Ontario</a>
+        <a href="/sites?provinceOrTerritory=Quebec" class="btn btn-outline">Quebec</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container mx-auto mt-8 px-6">
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Site Name</th>
+            <th>Date &amp; Designated</th>
+            <th>Location</th>
+            <th>Region</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% sites.forEach(site => { %>
+          <tr>
+           
+            <td>
+              <img src="<%= site.image %>" alt="Site Image" class="w-16 h-16 object-cover rounded-full">
+            </td>
+            
+            <td><%= site.site %></td>
+            
+            <td>
+              Date: <%= site.date %> (<%= site.dateType %>)<br>
+              Designated: <%= site.designated %>
+            </td>
+            
+            <td>
+              <%= site.location %>, 
+              <a href="/sites?provinceOrTerritory=<%= site.provinceOrTerritoryObj.name %>" class="btn btn-sm btn-outline">
+                <%= site.provinceOrTerritoryObj.name %>
+              </a>
+            </td>
+            
+            <td>
+              <a href="/sites?region=<%= site.provinceOrTerritoryObj.region %>" class="btn btn-sm btn-outline">
+                <%= site.provinceOrTerritoryObj.region %>
+              </a>
+            </td>
+            
+            <td>
+              <a href="/sites/<%= site.siteId %>" class="btn btn-sm btn-primary">Details</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <footer class="footer footer-center bg-base-300 text-base-content p-4 mt-8">
+    <aside>
+      <p>Copyright © 2025 - All rights reserved by National Historic Sites</p>
+    </aside>
+  </footer>
+
+</body>
+</html>
