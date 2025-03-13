@@ -11,12 +11,16 @@
   
   <%- include('partials/navbar', { page: '/sites' }) %>
 
-  
+ 
   <div class="hero bg-base-200 p-6 text-center">
     <div class="hero-content">
-      <h1 class="text-4xl font-bold">Site Collection</h1>
-      <p class="mt-2">Browse all of our sites below</p>
       
+      <h1 class="text-4xl font-bold">
+        Site Collection 
+        <span class="text-base text-primary">(<%= sites.length %>)</span>
+      </h1>
+      <p class="mt-2">Browse all of our sites below</p>
+
       <div class="mt-4 space-x-2">
         <a href="/sites?region=Atlantic%20Region" class="btn btn-outline">Atlantic Region</a>
         <a href="/sites?region=Central%20Canada" class="btn btn-outline">Central Canada</a>
@@ -44,9 +48,13 @@
         <tbody>
           <% sites.forEach(site => { %>
           <tr>
-           
+            
             <td>
-              <img src="<%= site.image %>" alt="Site Image" class="w-16 h-16 object-cover rounded-full">
+              <img 
+                src="<%= site.image %>" 
+                alt="Site Image" 
+                class="w-16 h-16 object-cover rounded-full"
+              >
             </td>
             
             <td><%= site.site %></td>
@@ -58,19 +66,30 @@
             
             <td>
               <%= site.location %>, 
-              <a href="/sites?provinceOrTerritory=<%= site.provinceOrTerritoryObj.name %>" class="btn btn-sm btn-outline">
-                <%= site.provinceOrTerritoryObj.name %>
+              <a 
+                href="/sites?provinceOrTerritory=<%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.name : '' %>"
+                class="btn btn-sm btn-outline"
+              >
+                <%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.name : '' %>
               </a>
             </td>
             
             <td>
-              <a href="/sites?region=<%= site.provinceOrTerritoryObj.region %>" class="btn btn-sm btn-outline">
-                <%= site.provinceOrTerritoryObj.region %>
+              <a 
+                href="/sites?region=<%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.region : '' %>"
+                class="btn btn-sm btn-outline"
+              >
+                <%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.region : '' %>
               </a>
             </td>
-            
+          
             <td>
-              <a href="/sites/<%= site.siteId %>" class="btn btn-sm btn-primary">Details</a>
+              <a 
+                href="/sites/<%= site.siteId %>" 
+                class="btn btn-sm btn-primary"
+              >
+                Details
+              </a>
             </td>
           </tr>
           <% }) %>
@@ -82,7 +101,10 @@
   
   <footer class="footer footer-center bg-base-300 text-base-content p-4 mt-8">
     <aside>
-      <p>Copyright © 2025 - All rights reserved by National Historic Sites</p>
+      <p>
+        Copyright © 2025 -
+        All rights reserved by National Historic Sites
+      </p>
     </aside>
   </footer>
 

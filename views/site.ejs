@@ -8,10 +8,10 @@
 </head>
 <body class="bg-gray-100">
 
-  
+  <!-- Navbar Partial -->
   <%- include('partials/navbar', { page: '' }) %>
 
-  
+  <!-- Hero Section -->
   <div class="hero bg-base-200 p-6 text-center">
     <div class="hero-content">
       <h1 class="text-4xl font-bold"></h1>
@@ -19,50 +19,77 @@
     </div>
   </div>
 
-  
+  <!-- Site Details -->
   <div class="container mx-auto p-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      
+      <!-- Left Column: Image -->
       <div>
-        <img src="<%= site.image %>" alt="<%= site.site %>" class="w-full rounded-lg shadow-xl">
+        <img 
+          src="<%= site.image %>" 
+          alt="<%= site.site %>" 
+          class="w-full rounded-lg shadow-xl"
+        >
       </div>
-      
+
+      <!-- Right Column: Info -->
       <div class="bg-white p-6 rounded-lg shadow-lg">
         <p><strong>Site Name:</strong> <%= site.site %></p>
         <p><strong>Date:</strong> <%= site.date %> (<%= site.dateType %>)</p>
+
+        <!-- Province/Territory Link -->
         <p>
           <strong>Location:</strong> <%= site.location %>, 
-          <a href="/sites?provinceOrTerritory=<%= site.provinceOrTerritoryObj.name %>" class="btn btn-sm btn-outline">
-            <%= site.provinceOrTerritoryObj.name %>
+          <a 
+            href="/sites?provinceOrTerritory=<%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.name : '' %>" 
+            class="btn btn-sm btn-outline"
+          >
+            <%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.name : '' %>
           </a>
         </p>
+
+        <!-- Region Link -->
         <p>
           <strong>Region:</strong> 
-          <a href="/sites?region=<%= site.provinceOrTerritoryObj.region %>" class="btn btn-sm btn-outline">
-            <%= site.provinceOrTerritoryObj.region %>
+          <a 
+            href="/sites?region=<%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.region : '' %>" 
+            class="btn btn-sm btn-outline"
+          >
+            <%= site.ProvinceOrTerritory ? site.ProvinceOrTerritory.region : '' %>
           </a>
         </p>
+
         <p><strong>Geolocation:</strong> <%= site.latitude %>, <%= site.longitude %></p>
         <p><strong>Designated:</strong> <%= site.designated %></p>
-        
-      
+        <!-- New: Display World Heritage Status -->
+        <p><strong>Is WorldHeritageSite:</strong> <%= site.worldHeritageSite ? "Yes" : "No" %></p>
+
+        <!-- Random Quote -->
         <blockquote id="quote" class="mt-4 italic text-gray-600"></blockquote>
         <p id="author" class="text-gray-500"></p>
-        
-       
-        <a href="#" onclick="history.back(); return false;" class="btn btn-outline mt-4">Go Back</a>
+
+        <!-- Edit Button -->
+        <a href="/editSite/<%= site.siteId %>" class="btn btn-success mt-4">Edit</a>
+
+        <!-- Back Button -->
+        <a 
+          href="#" 
+          onclick="history.back(); return false;" 
+          class="btn btn-outline mt-4"
+        >
+          Go Back
+        </a>
       </div>
     </div>
   </div>
 
-  
+  <!-- Footer -->
   <footer class="footer footer-center bg-base-300 text-base-content p-4 mt-8">
     <aside>
       <p>Copyright © 2025 - All rights reserved by National Historic Sites</p>
     </aside>
   </footer>
 
-  
+  <!-- Random Quote Script -->
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       try {

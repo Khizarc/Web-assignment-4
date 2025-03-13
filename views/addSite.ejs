@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Site</title>
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  
+  <%- include('partials/navbar', { page: '/addSite' }) %>
+
+  
+  <div class="hero bg-base-200 p-6 text-center">
+    <div class="hero-content">
+      <h1 class="text-4xl font-bold">Add Site</h1>
+      <p class="mt-2">Enter details for your new Site below</p>
+    </div>
+  </div>
+
+  
+  <div class="container mx-auto p-6">
+    <form method="POST" action="/addSite" class="grid gap-4 max-w-lg mx-auto">
+      
+      <label class="block">
+        <span class="font-semibold">Site ID</span>
+        <input 
+          type="text" 
+          name="siteId" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Site Name</span>
+        <input 
+          type="text" 
+          name="site" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Image URL</span>
+        <input 
+          type="url" 
+          name="image" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Date</span>
+        <input 
+          type="number" 
+          name="date" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Date Type</span>
+        <input 
+          type="text" 
+          name="dateType" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+    
+      <label class="block">
+        <span class="font-semibold">Designated</span>
+        <input 
+          type="number" 
+          name="designated" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Location</span>
+        <input 
+          type="text" 
+          name="location" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Province / Territory Code</span>
+        <select 
+          name="provinceOrTerritoryCode" 
+          required 
+          class="select select-bordered w-full mt-1"
+        >
+          <% provincesAndTerritories.forEach(pt => { %>
+            <option value="<%= pt.code %>">
+              <%= pt.name %>
+            </option>
+          <% }) %>
+        </select>
+      </label>
+
+      
+      <label class="block">
+        <span class="font-semibold">Description</span>
+        <textarea 
+          name="description" 
+          class="textarea textarea-bordered w-full mt-1"
+        ></textarea>
+      </label>
+
+     
+      <label class="block">
+        <span class="font-semibold">Latitude</span>
+        <input 
+          type="number" 
+          name="latitude" 
+          step="0.00000001" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+   
+      <label class="block">
+        <span class="font-semibold">Longitude</span>
+        <input 
+          type="number" 
+          name="longitude" 
+          step="0.00000001" 
+          required 
+          class="input input-bordered w-full mt-1"
+        />
+      </label>
+
+      <button type="submit" class="btn btn-primary mt-4">
+        Add Site
+      </button>
+    </form>
+  </div>
+
+  
+  <footer class="footer footer-center bg-base-300 text-base-content p-4 mt-8">
+    <aside>
+      <p>Copyright © 2025 -
+        All rights reserved by National Historic Sites
+      </p>
+    </aside>
+  </footer>
+
+</body>
+</html>
