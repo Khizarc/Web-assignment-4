@@ -1,3 +1,16 @@
+/********************************************************************************
+* WEB322 – Assignment 04
+*
+* I declare that this assignment is my own work in accordance with Seneca's
+* Academic Integrity Policy:
+*
+* https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+*
+* Name: Khizar Chaudhry Student ID: 029957156  Date: 2025-03/09
+* Published URL: assignment-5-6tov-5ckec3gbt-khizarcs-projects.vercel.app
+*
+********************************************************************************/
+
 require('dotenv').config();
 require('pg'); 
 const Sequelize = require('sequelize');

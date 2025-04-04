@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <link href="/css/main.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100">
+  <%- include('partials/navbar', { page: '/login' }) %>
+
+  <!-- Hero Section -->
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse w-full max-w-4xl mx-auto">
+      
+      <!-- Intro Text / Side Column -->
+      <div class="text-center lg:text-left lg:w-1/2 p-6">
+        <h1 class="text-5xl font-bold">Login now!</h1>
+        <p class="py-6">Please enter your credentials to access your account.</p>
+      </div>
+      
+      <!-- Form Card with fixed width -->
+      <div class="card flex-shrink-0 max-w-xs shadow-2xl bg-base-100 mt-16">
+        <form method="POST" action="/login" class="card-body">
+          
+          <!-- Username Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-semibold">User Name</span>
+            </label>
+            <input 
+              type="text"
+              name="userName"
+              value="<%= userName ? userName : '' %>"
+              placeholder="User Name"
+              required
+              class="input input-bordered"
+            />
+          </div>
+          
+          <!-- Password Field -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-semibold">Password</span>
+            </label>
+            <input 
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              class="input input-bordered"
+            />
+          </div>
+          
+          <!-- Error Alert (only if errorMessage exists) -->
+          <% if (errorMessage) { %>
+          <div class="alert alert-error mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="stroke-current shrink-0 h-6 w-6" 
+                 fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span><%= errorMessage %></span>
+          </div>
+          <% } %>
+          
+          <!-- Submit Button -->
+          <div class="form-control mt-6">
+            <button class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
