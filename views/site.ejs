@@ -20,7 +20,7 @@
   <div class="container mx-auto p-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       
-      <!-- Image Section -->
+      
       <div>
         <img 
           src="<%= site.image %>" 
@@ -29,7 +29,7 @@
         >
       </div>
 
-      <!-- Details Section -->
+      
       <div class="bg-white p-6 rounded-lg shadow-lg">
         <p><strong>Site Name:</strong> <%= site.site %></p>
         <p><strong>Date:</strong> <%= site.date %> (<%= site.dateType %>)</p>
@@ -61,7 +61,7 @@
         <blockquote id="quote" class="mt-4 italic text-gray-600"></blockquote>
         <p id="author" class="text-gray-500"></p>
 
-        <!-- Conditionally display the Edit button if user is logged in -->
+        
         <% if (session.user) { %>
           <a href="/editSite/<%= site.siteId %>" class="btn btn-success mt-4">Edit</a>
         <% } %>
